@@ -1,0 +1,14 @@
+services:
+  next:
+    build:
+      context: ./recette
+      dockerfile: Dockerfile
+    container_name: next_app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./recette:/usr/app/recette
+      - /usr/app/recette/node_modules
+    command: /bin/sh -c "npm install && npm run dev"
+    environment:
+      - NODE_ENV=${NODE_ENV}
