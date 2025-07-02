@@ -1,3 +1,4 @@
+import { Recette } from "@/app/api/recette/route";
 import {base} from "@/utils/airtable";
 
 export const getUserByEmail = async (email: string) => {
@@ -37,3 +38,9 @@ export const register = async (data: {
     }
 };
 
+
+export async function searchRecettes(query: string): Promise<Recette[]> {
+    const res = await fetch(`/api/recette/search?q=${encodeURIComponent(query)}`);
+    if (!res.ok) throw new Error("Erreur lors de la recherche");
+    return await res.json();
+}

@@ -1,14 +1,15 @@
-import {NextResponse} from "next/server";
-import {getRecetteById} from "@/app/api/recette/route";
+import { NextResponse } from "next/server";
+import { getRecetteById } from "@/app/api/recette/route";
 
 export async function GET(
-    request: Request,
-    {params}: { params: { id: string } }
+  request: Request,
+  context: { params: { id: string } }
 ) {
-    try {
-        const recette = await getRecetteById(params.id);
-        return NextResponse.json(recette);
-    } catch (err) {
-        return NextResponse.json({message: "Non trouvé"}, {status: 404});
-    }
+  try {
+    const id = context.params.id;
+    const recette = await getRecetteById(id);
+    return NextResponse.json(recette);
+  } catch (err) {
+    return NextResponse.json({ message: "Non trouvé" }, { status: 404 });
+  }
 }
