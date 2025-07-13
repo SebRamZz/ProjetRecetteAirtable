@@ -40,11 +40,9 @@ export function RecipeSidebar({
             onOpenChange={(open) => {
                 if (!open) onClose();
             }}
-            className="w-[600px] max-w-full"
-
         >
 
-            <SheetContent position="right" className="w-[600px] max-w-full">
+            <SheetContent side="right" className="w-[600px] max-w-full">
                 <SheetHeader>
                     <SheetTitle>Détails de la recette</SheetTitle>
                     <SheetDescription>
@@ -55,7 +53,7 @@ export function RecipeSidebar({
                 {loading && <p>Chargement…</p>}
 
                 {detail && (
-                    <div className="space-y-4 p-4">
+                    <div className="space-y-4 p-4 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 100px)' }}>
                         {detail.fields.images?.[0]?.url && (
                             <Image
                                 src={detail.fields.images[0].url}
