@@ -1,8 +1,9 @@
 // app/recette/page.tsx
 import ClientRecetteList from "@/components/ClientRecetteList";
-import {listRecettes, Recette} from "@/app/api/recette/route";
 
 export default async function RecettePage() {
-    const recettes: Recette[] = await listRecettes();
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
+    const res = await fetch(`${baseUrl}/api/recette`, { cache: "no-store" });
+    const recettes = await res.json();
     return <ClientRecetteList recettes={recettes} />;
 }

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getRecetteById } from "@/app/api/recette/route";
+import { getRecetteById } from "@/utils/recette";
 
 export async function GET(
   request: Request,
