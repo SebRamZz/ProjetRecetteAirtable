@@ -1,5 +1,39 @@
 # ProjetRecetteAirtable
 
+
+## Getting Started
+
+Dans le .env du dossier /portfolio ajouter les Key
+```bash
+NEXT_PUBLIC_AIRTABLE_API_KEY=""
+NEXT_PUBLIC_AIRTABLE_BASE_ID=""
+NEXTAUTH_SECRET=""
+NEXTAUTH_URL=http://localhost:3000
+OLLAMA_HOST=http://localhost:11434/
+NEXT_PUBLIC_BASE_URL=http://localhost:3000/
+````
+
+On utilise docker
+
+```bash
+docker-compose up -d
+
+Ouvrir http://localhost:3000
+````
+
+## Membre du groupe
+- Ismail MRABET
+- Jay BURY
+- Hamza MAHMOOD
+- Sébastien RAMIREZ
+
+
+## Technologies utilisées
+- Next (Front/Back)
+- NextAuth (Authentification)
+- AirTable (BDD)
+- Shacn/UI
+
 ## ⚠️ Démarrage de l'IA (Ollama) et téléchargement du modèle
 
 Lors du premier démarrage du projet avec Docker Compose, le service Ollama télécharge automatiquement le modèle IA `phi3`. **Ce téléchargement peut prendre plusieurs minutes** (le modèle fait plusieurs Go).
